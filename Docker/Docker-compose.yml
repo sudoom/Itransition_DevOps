@@ -1,0 +1,26 @@
+version: '3'
+services:
+  balancer:
+    image: nginx
+    ports:
+      - 80:80/tcp
+    links:
+      - "web"
+  web:
+    build: .
+    links:
+      - "mysql57"
+#    volumes:
+#      - <ПАПКА_ПРОЕКТА>/web/etc/sites-enabled:/etc/apache2/sites-enabled
+#      - <ПАПКА_ПРОЕКТА>/web/www:/var/www/site
+  mysql57:
+    image: percona:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+#    volumes:
+#      - <ПАПКА_ПРОЕКТА>/mysql/configs/my.cnf:/etc/mysql/conf.d/custom.cnf
+#      - <ПАПКА_ПРОЕКТА>/mysql/mysql:/var/lib/mysql
+  webcat:
+    image: bitnami/tomcat
+    ports:
+      - 8080:8080/tcp
