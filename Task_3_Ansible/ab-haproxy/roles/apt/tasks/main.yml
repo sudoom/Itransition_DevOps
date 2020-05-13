@@ -1,0 +1,11 @@
+---
+- name: Update and Upgrade packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: "{{ apt_update_cache_valid_time }}"
+
+- name: Install packages
+  apt:
+    name: "{{ apt_install }}"
+    state: "{{ apt_install_state }}"
