@@ -1,0 +1,27 @@
+---
+- name: Install logstash
+  package:
+    name: logstash
+    state: present
+
+- name: Start logstash
+  service:
+    name: logstash
+    state: started
+    enabled: true
+
+- name: Add logstash user to adm group
+  user:
+    name: logstash
+    group: logstash
+    groups: adm
+
+
+
+
+
+- name: Ensure Logstash is started and enabled on boot.
+  service:
+    name: logstash
+    state: started
+    enabled: true

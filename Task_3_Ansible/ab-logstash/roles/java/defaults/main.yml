@@ -1,0 +1,3 @@
+---
+java_version: 11
+java_packages: openjdk-{{ java_version }}-jdk

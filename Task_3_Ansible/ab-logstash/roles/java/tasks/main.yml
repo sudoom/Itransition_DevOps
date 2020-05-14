@@ -1,0 +1,13 @@
+---
+- name: Ensure Java is installed.
+  apt:
+    name: "{{ java_packages }}"
+    state: present
+
+- name: Configure environment
+  lineinfile:
+    path: /etc/environment
+    line: 'JAVA_HOME="/usr/lib/jvm/java-{{ java_version }}-openjdk-amd64"'
+
+#- name: Save changes
+#  shell: source /etc/environment
