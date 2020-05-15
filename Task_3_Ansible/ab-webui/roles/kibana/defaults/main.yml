@@ -1,0 +1,8 @@
+---
+kibana_server_port: 5601
+kibana_server_host: "192.168.50.20"
+
+kibana_elasticsearch_url: "http://192.168.50.10:9200"
+kibana_elasticsearch_port: 9200
+kibana_elasticsearch_username: ""
+kibana_elasticsearch_password: ""
