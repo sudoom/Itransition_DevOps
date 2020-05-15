@@ -16,12 +16,3 @@
     group: logstash
     groups: adm
 
-
-
-
-
-- name: Ensure Logstash is started and enabled on boot.
-  service:
-    name: logstash
-    state: started
-    enabled: true
