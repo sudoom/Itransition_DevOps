@@ -3,9 +3,9 @@
   become: yes
   roles:
     - role: apt
-      apt_install: [ntp, tzdata, ntpdate, monit]
+      apt_install: [ntp, tzdata, ntpdate, monit, haproxy]
     - ntp
-#    - monit
+    - monit
 #    - geerlingguy.haproxy
 #    - monit:
 #        name: haproxy
