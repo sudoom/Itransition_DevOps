@@ -1,0 +1,5 @@
+---
+logstash_host: "192.168.50.10"
+logstash_port: 10514
+es_host: 192.168.50.10
+es_port: 9200

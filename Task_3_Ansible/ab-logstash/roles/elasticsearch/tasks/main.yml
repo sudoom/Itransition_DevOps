@@ -37,7 +37,6 @@
 
 - name: Enable elasticsearch-head
   shell: cd /home/vagrant/elasticsearch-head && nohup npm run start > /dev/null 2>&1 &
-#    cmd:
 
 - name: Install elasticsearch plugin - elasticsearch-HQ
   block:
