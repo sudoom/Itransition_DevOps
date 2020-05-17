@@ -1,0 +1,16 @@
+worker_processes 1;
+events {
+  worker_connections 1024;
+}
+http {
+  upstream kibana {
+    server 192.168.50.20:5601;
+  }
+  server {
+    listen 80;
+    location / {
+      proxy_pass http://kibana;
+    }
+  }
+}
+

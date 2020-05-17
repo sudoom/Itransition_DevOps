@@ -8,6 +8,7 @@
     - monit
     - rsyslog
     - kibana
+    - nginx
 
 #    - name: Get virtual machine id
 #      shell: ps -e | grep "VBox" | awk 'NR==1{print $1}'
