@@ -10,13 +10,13 @@
     - elasticsearch
     - logstash
 
-#    - name: Get virtual machine id
-#      shell: ps -e | grep "VBox" | awk 'NR==1{print $1}'
-#      register: unique_id
-#    - name: Create final ini file
-#      ini_file:
-#        dest: /etc/ab-logstash-ini
-#        section: general
-#        option: uniqueID
-#        value: "{{unique_id.stdout}}"
-#        mode: 0600
+    - name: Get virtual machine id
+      shell: ps -e | grep "VBox" | awk 'NR==1{print $1}'
+      register: unique_id
+    - name: Create final ini file
+      ini_file:
+        dest: /etc/ab-logstash-ini
+        section: general
+        option: uniqueID
+        value: "{{unique_id.stdout}}"
+        mode: 0600
