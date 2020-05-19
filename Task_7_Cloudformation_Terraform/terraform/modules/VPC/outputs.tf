@@ -7,17 +7,16 @@ output "vpc_cidr_block" {
 }
 
 output "security_group_id" {
-  value = [aws_security_group.web_sg.id]
+  value = [
+    aws_security_group.web_sg.id]
 }
 
 output "public_route_table_ids" {
-  value = [
-    aws_route_table.public.*.id]
+  value = aws_route_table.public.*.id
 }
 
 output "private_route_table_ids" {
-  value = [
-    aws_route_table.private.*.id]
+  value = aws_route_table.private.*.id
 }
 
 output "vpc-publicsubnets" {
