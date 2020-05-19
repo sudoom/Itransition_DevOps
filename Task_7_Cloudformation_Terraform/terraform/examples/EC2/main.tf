@@ -27,5 +27,4 @@ module "ec2" {
     "eu-central-1a",
     "eu-central-1b"
   ]
-  name_key = "Mossad_security_key"
 }

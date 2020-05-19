@@ -7,11 +7,6 @@ variable "name" {
   type = string
 }
 
-variable "name_key" {
-  default = ""
-  type = string
-}
-
 variable "ami" {
   description = "I added only 3 regions to show the map feature but you can add all"
   type = string

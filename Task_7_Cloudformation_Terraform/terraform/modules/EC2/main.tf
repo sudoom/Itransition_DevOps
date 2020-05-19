@@ -7,7 +7,7 @@ resource "tls_private_key" "PK" {
 }
 
 resource "aws_key_pair" "key_pair" {
-  key_name = var.name_key
+  key_name = format("%s-%s", var.name, "security_key" )
   public_key = tls_private_key.PK.public_key_openssh
 }
 

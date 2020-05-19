@@ -35,5 +35,8 @@ module "ec2" {
   vpc_security_group_ids = module.vpc.security_group_id
   subnet_ids = module.vpc.vpc-publicsubnet-ids
   availability_zones = module.vpc.vpc_public_available_zones
-  name_key = "Mossad_security_key"
+}
+
+output "EC2" {
+  value = module.ec2
 }
