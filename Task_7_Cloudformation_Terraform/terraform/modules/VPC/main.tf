@@ -69,28 +69,27 @@ resource "aws_route_table_association" "vps_ass_private" {
 resource "aws_security_group" "web_sg" {
   name = format("%s-%s", var.name, "sg")
   vpc_id = aws_vpc.vpc.id
+
+  dynamic "ingress" {
+    for_each = var.allow_ports
+    content {
+      from_port = ingress.value
+      to_port = ingress.value
+      protocol = var.protocol
+      cidr_blocks = [
+        var.host_CIDR_ip]
+    }
+  }
+
+  egress {
+    from_port = 0
+    protocol = "-1"
+    to_port = 0
+    cidr_blocks = [
+      var.cidr_internet]
+  }
+
   tags = {
     Name = format("%s-%s", var.name, "sg")
   }
-}
-
-resource "aws_security_group_rule" "ingress_ports" {
-  count = length(var.allow_ports)
-  from_port = element(var.allow_ports, count.index)
-  protocol = var.protocol
-  security_group_id = aws_security_group.web_sg.id
-  to_port = element(var.allow_ports, count.index)
-  type = "ingress"
-  cidr_blocks = [
-    var.host_CIDR_ip]
-}
-
-resource "aws_security_group_rule" "egress_ports" {
-  from_port = 0
-  protocol = "-1"
-  security_group_id = aws_security_group.web_sg.id
-  to_port = 0
-  type = "egress"
-  cidr_blocks = [
-    var.cidr_internet]
 }
