@@ -29,11 +29,11 @@ output "VPC" {
   value = module.vpc
 }
 
-//module "ec2" {
-//  source = "./modules/EC2"
-//  name = "Mossad"
-//  vpc_security_group_ids = module.vpc.security_group_id
-//  subnet_ids = module.vpc.vpc-publicsubnet-ids
-//  availability_zones = module.vpc.vpc_public_available_zones
-//  name_key = "Mossad_security_key"
-//}
+module "ec2" {
+  source = "./modules/EC2"
+  name = "Mossad"
+  vpc_security_group_ids = module.vpc.security_group_id
+  subnet_ids = module.vpc.vpc-publicsubnet-ids
+  availability_zones = module.vpc.vpc_public_available_zones
+  name_key = "Mossad_security_key"
+}
