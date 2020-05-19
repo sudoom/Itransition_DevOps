@@ -1,0 +1,86 @@
+EC2 = {
+  "availability_zone" = [
+    "eu-central-1a",
+    "eu-central-1b",
+  ]
+  "instance_ids" = [
+    "i-0923908698737f1e8",
+    "i-05ba12004c9fca807",
+  ]
+  "key_name" = [
+    "Mossad-security_key",
+    "Mossad-security_key",
+  ]
+  "primary_network_interface_id" = [
+    "eni-07bcdd9b4fa358136",
+    "eni-01882e28ed678e496",
+  ]
+  "private_dns" = [
+    "ip-10-10-100-109.eu-central-1.compute.internal",
+    "ip-10-10-200-164.eu-central-1.compute.internal",
+  ]
+  "private_ip" = [
+    "10.10.100.109",
+    "10.10.200.164",
+  ]
+  "public_ip" = [
+    "3.125.3.36",
+    "3.121.195.159",
+  ]
+  "subnet_id" = [
+    "subnet-046bf23a8e11d2ce8",
+    "subnet-099b2fe7d80530d9f",
+  ]
+  "vpc_security_group_ids" = [
+    "sg-02e05dd12feface8c",
+    "sg-02e05dd12feface8c",
+  ]
+}
+ELB = {
+  "elb_arn" = [
+    "arn:aws:elasticloadbalancing:eu-central-1:899746116346:loadbalancer/Mossad-elb",
+  ]
+  "elb_dns_name" = "Mossad-elb-230531974.eu-central-1.elb.amazonaws.com"
+  "elb_id" = "Mossad-elb"
+  "elb_instances" = [
+    "i-05ba12004c9fca807",
+    "i-0923908698737f1e8",
+  ]
+  "elb_name" = "Mossad-elb"
+  "elb_source_security_group" = [
+    "899746116346/Mossad-sg",
+  ]
+  "elb_source_security_group_id" = "sg-02e05dd12feface8c"
+  "elb_zone_id" = "Z215JYRZR1TBD5"
+}
+VPC = {
+  "private_route_table_ids" = [
+    "rtb-01c528b0199da2c71",
+  ]
+  "public_route_table_ids" = [
+    "rtb-06a33619d4598c0bd",
+  ]
+  "security_group_id" = [
+    "sg-02e05dd12feface8c",
+  ]
+  "vpc-privatesubnet-ids" = [
+    "subnet-0c68749eb60854899",
+  ]
+  "vpc-privatesubnets" = [
+    "10.10.110.0/24",
+  ]
+  "vpc-publicsubnet-ids" = [
+    "subnet-046bf23a8e11d2ce8",
+    "subnet-099b2fe7d80530d9f",
+  ]
+  "vpc-publicsubnets" = [
+    "10.10.100.0/24",
+    "10.10.200.0/24",
+  ]
+  "vpc_cidr_block" = "10.10.0.0/16"
+  "vpc_id" = "vpc-091ab255917b3afeb"
+  "vpc_public_available_zones" = [
+    "eu-central-1a",
+    "eu-central-1b",
+  ]
+}
