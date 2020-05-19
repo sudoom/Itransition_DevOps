@@ -40,3 +40,39 @@ module "ec2" {
 output "EC2" {
   value = module.ec2
 }
+
+module "elb" {
+  source = "./modules/ELB"
+  name = "Mossad"
+  security_groups = module.vpc.security_group_id
+  subnets = module.vpc.vpc-publicsubnet-ids
+  instances = module.ec2.instance_ids
+  listener = [
+    {
+      instance_port = 80
+      instance_protocol = "HTTP"
+      lb_port = 80
+      lb_protocol = "HTTP"
+    },
+    {
+      instance_port = 443
+      instance_protocol = "HTTP"
+      lb_port = 443
+      lb_protocol = "HTTP"
+    }]
+  health_check = {
+    healthy_threshold = 2
+    interval = 5
+    target = "HTTP:80/"
+    timeout = 2
+    unhealthy_threshold = 2
+  }
+
+  allow_ports = [
+    80,
+    443]
+}
+
+output "ELB" {
+  value = module.elb
+}
