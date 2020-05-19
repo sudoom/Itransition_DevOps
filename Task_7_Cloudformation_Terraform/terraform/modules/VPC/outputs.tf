@@ -7,7 +7,7 @@ output "vpc_cidr_block" {
 }
 
 output "security_group_id" {
-  value = aws_security_group.web_sg.id
+  value = [aws_security_group.web_sg.id]
 }
 
 output "public_route_table_ids" {
@@ -36,3 +36,6 @@ output "vpc-privatesubnet-ids" {
   value = aws_subnet.private.*.id
 }
 
+output "vpc_public_available_zones" {
+  value = aws_subnet.public.*.availability_zone
+}
