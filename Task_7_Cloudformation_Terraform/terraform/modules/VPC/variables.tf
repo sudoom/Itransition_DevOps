@@ -25,9 +25,9 @@ variable "dns_Support" {
   default = true
 }
 variable "dns_HostNames" {
-  description = ""
+  description = "(Optional) A boolean flag to enable/disable DNS hostname in the VPC. Defaults true."
   type = bool
-  default = false
+  default = true
 }
 
 #####################################
