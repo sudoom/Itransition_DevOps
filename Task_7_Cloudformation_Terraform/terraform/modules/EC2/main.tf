@@ -1,6 +1,3 @@
-#---------------------------------------------------
-# Define SSH key pair for our instances
-#---------------------------------------------------
 resource "tls_private_key" "PK" {
   algorithm = "RSA"
   rsa_bits = 4096
@@ -39,4 +36,10 @@ resource "aws_instance" "instance" {
       private_key = tls_private_key.PK.private_key_pem
     }
   }
+}
+
+resource "local_file" "local_private_key" {
+  sensitive_content = tls_private_key.PK.private_key_pem
+  filename = format("%s-%s", var.name, "security_key.pem" )
+  file_permission = "0400"
 }
