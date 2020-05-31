@@ -99,3 +99,21 @@ module "rds" {
 output "RDS" {
   value = module.rds
 }
+
+module "elasticache" {
+  source = "./modules/ElastiCache "
+  name = "mossad"
+  security_groups_ids = module.vpc.security_group_id
+  subnet_ids = module.vpc.vpc-privatesubnet-ids
+  cidr_ec2 = module.vpc.vpc-publicsubnets
+  node_type_redis = "t2.micro"
+  node_type_memcached = "t2.micro"
+  engine_version_redis = "5.0.6"
+  engine_version_memcached = "1.5.16"
+  num_cache_nodes_redis = 1
+  num_cache_nodes_memcached = 1
+}
+
+output "ElastiCache" {
+  value = module.elasticache
+}
