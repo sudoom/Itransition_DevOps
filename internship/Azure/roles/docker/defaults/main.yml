@@ -1,0 +1,4 @@
+---
+install_docker_compose: true
+docker_compose_version: 1.25.5
+docker_compose_path: /usr/local/bin/docker-compose

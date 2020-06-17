@@ -1,0 +1,34 @@
+---
+- name: remove old packages
+  package:
+    name: "{{ docker_old_packages }}"
+    state: absent
+
+- name: install dependencies packages
+  package:
+    name: "{{ docker_dependencies }}"
+    state: present
+
+- name: Add Docker apt key.
+  apt_key:
+    url: "{{ docker_gpg_url }}"
+    id: "{{ docker_gpg_id }}"
+    state: present
+
+- name: Add Docker repository.
+  apt_repository:
+    repo: "{{ docker_repository }}"
+    state: present
+    update_cache: true
+
+- name: install docker
+  package:
+    name: "{{ docker_packages }}"
+    state: latest
+
+- name: install docker-compose
+  get_url:
+    url: "{{ docker_compose_url }}"
+    dest: "{{ docker_compose_path }}"
+    mode: "0755"
+  when: install_docker_compose | bool

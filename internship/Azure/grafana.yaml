@@ -1,0 +1,23 @@
+---
+apiVersion: 2018-10-01
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+location: eastus
+name: grafana
+properties:
+  containers:
+    - name: grafana
+      properties:
+        image: grafana/grafana
+        resources:
+          requests:
+            cpu: 1
+            memoryInGb: 1.5
+        ports:
+          - port: 3000
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+      - protocol: tcp
+        port: 3000
