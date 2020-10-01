@@ -1,0 +1,23 @@
+---
+name: 'Ensure Telegraf Docker container is running'
+  docker_container:
+    name: 'telegraf'
+    image: 'telegraf:{{ telegraf_version }}'
+    state: started
+    restart_policy: 'unless-stopped'
+    command: -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d
+    network_mode: 'bridge'
+    security_opts:
+      - apparmor:unconfined
+    volumes:
+      - /etc/telegraf:/etc/telegraf:ro
+      - /:/hostfs:ro
+      - /etc:/hostfs/etc:ro
+      - /proc:/hostfs/proc:ro
+      - /sys:/hostfs/sys:ro
+      - /var/run:/var/run:ro
+    env:
+      HOST_MOUNT_PREFIX: /hostfs
+      HOST_ETC: /hostfs/etc
+      HOST_PROC: /hostfs/proc
+      HOST_SYS: /hostfs/sys

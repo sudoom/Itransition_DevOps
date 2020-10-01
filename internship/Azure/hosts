@@ -1,0 +1,4 @@
+[azure_test]
+azure_linux    ansible_host=52.152.142.74  ansible_user=AzureUser
+az_lin          ansible_host=52.188.50.217  ansible_user=AzureUser
+#azure_windows   ansible_host=52.188.14.227   ansible_user=AzureUser  ansible_password=Tt6363sg26a2  ansible_port=5986 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore
